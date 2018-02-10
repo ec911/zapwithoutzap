@@ -1,3 +1,0 @@
-0 */12 * * * /bin/bash /zap2xml/scripts/zap2xml.sh > /var/log/zap.log
-@reboot /bin/bash /zap2xml/scripts/zap2xml.sh > /var/log/zap.log
-# An empty line is required at the end of this file for a valid cron file.
