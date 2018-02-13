@@ -52,4 +52,4 @@ RUN chmod -v +x /zap2xml/scripts/* /zap2xml/cron/*
 RUN crontab /zap2xml/cron/zap-cron
 RUN touch /var/log/zap.log
 # CMD cron && tail -f /var/log/zap.log
-CMD touch /var/log/cron.log && cron && env > /root/env.sh && tail -f /var/log/cron.log
+CMD touch /var/log/cron.log && cron && env > /zap2xml/scripts/env.sh && tail -f /var/log/cron.log
