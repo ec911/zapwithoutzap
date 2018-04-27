@@ -1,1 +1,2 @@
-env - `cat /zap2xml/scripts/env.sh` /bin/bash -c $1 >> /var/log/cron.log 2>&1
+
+printenv | sed 's/^\(.*\)$/export \1/g' > /zap2xml/scripts/env.sh
