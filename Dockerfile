@@ -45,6 +45,8 @@ VOLUME /data
 ADD files/scripts/ /zap2xml/scripts/
 #ADD cron files
 ADD files/cron/ /zap2xml/cron/
+#Dump ENV variables
+printenv | sed 's/^\(.*\)$/export \1/g' > /root/project_env.sh
 #Give both script and crontab file execution rights
 RUN chmod -v +x /zap2xml/scripts/* /zap2xml/cron/*
 
