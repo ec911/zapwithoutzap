@@ -1,6 +1,6 @@
 #0 */12 * * * /bin/bash /zap2xml/scripts/zap2xml.sh > /var/log/zap.log
 #@reboot /bin/bash /zap2xml/scripts/zap2xml.sh > /var/log/zap.log
-0 */12 * * * /zap2xml/scripts/env.sh /zap2xml/scripts/zap2xml.sh 
-@reboot /zap2xml/scripts/env.sh /zap2xml/scripts/zap2xml.sh 
+0 */12 * * * /zap2xml/scripts/env.sh; /zap2xml/scripts/zap2xml.sh 
+@reboot /zap2xml/scripts/env.sh; env > /var/log/env.txt; /zap2xml/scripts/zap2xml.sh 
 
 # An empty line is required at the end of this file for a valid cron file.
