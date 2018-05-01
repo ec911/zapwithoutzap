@@ -46,9 +46,10 @@ ADD files/scripts/ /zap2xml/scripts/
 #ADD cron files
 ADD files/cron/ /zap2xml/cron/
 #Dump ENV variables
-RUN printenv | sed 's/^\(.*\)$/export \1/g' > /root/project_env.sh
+RUN printenv | grep -v LS_COLORS | sed 's/^\(.*\)$/export "\1"/g' >/zap2xml/scripts/env.sh
 #Give both script and crontab file execution rights
 RUN chmod -v +x /zap2xml/scripts/* /zap2xml/cron/*
+RUN chmod +x /zap2xml/scripts/env.sh
 
 # Setup cron job
 RUN crontab /zap2xml/cron/zap-cron
