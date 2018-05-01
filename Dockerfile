@@ -21,7 +21,7 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
 #RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd2-xpm-dev" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd-dev" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", "libssl-dev" ]
-RUN [ "apt-get", "install", "wget" ]
+#RUN [ "apt-get", "install", "wget" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", "vim" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", "pkg-config" ] 
 RUN [ "apt-get", "install", "-qy", "--force-yes", "cron" ]
