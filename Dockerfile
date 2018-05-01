@@ -18,7 +18,8 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "perl", \
       "build-essential", \
       "cpanminus" ] 
-RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd2-xpm-dev" ]
+#RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd2-xpm-dev" ]
+RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd-dev" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", "libssl-dev" ]
 RUN [ "apt-get", "install", "wget" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", "vim" ]
