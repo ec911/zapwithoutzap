@@ -11,26 +11,38 @@ RUN usermod -u 99 nobody && \
 
 # Fully updates Ubuntu, installs perl and cpanminus packages, and cleans up apt to save some space.
 
-RUN [ "apt-get", "-q", "update" ]
-RUN [ "apt-get", "-qy", "--force-yes", "upgrade" ]
-RUN [ "apt-get", "-qy", "--force-yes", "dist-upgrade" ]
-RUN [ "apt-get", "install", "-qy", "--force-yes", \
-      "perl", \
-      "build-essential", \
-      "cpanminus" ] 
-#RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd2-xpm-dev" ]
-RUN [ "apt-get", "install", "-qy", "--force-yes", "libgd-dev" ]
-RUN [ "apt-get", "install", "-qy", "--force-yes", "libssl-dev" ]
+RUN apt-get update && apt-get install -y \
+    perl \
+    build-essential \
+    cpanminus \
+    libgd-dev \
+    libssl-dev \
+    vim \
+    pkg-config \
+    cron \
+    && rm -rf /var/lib/apt/lists/*, /tmp/*, /var/tmp/*
+
+
+#RUN [ "apt-get", "-q", "update" ]
+#RUN [ "apt-get", "-qy", "upgrade" ]
+#RUN [ "apt-get", "-qy", "dist-upgrade" ]
+#RUN [ "apt-get", "install", "-qy", \
+#     "perl", \
+#     "build-essential", \
+#      "cpanminus" ] 
+#RUN [ "apt-get", "install", "-qy", "libgd2-xpm-dev" ]
+#RUN [ "apt-get", "install", "-qy", "libgd-dev" ]
+#RUN [ "apt-get", "install", "-qy", "libssl-dev" ]
 #RUN [ "apt-get", "install", "wget" ]
-RUN [ "apt-get", "install", "-qy", "--force-yes", "vim" ]
-RUN [ "apt-get", "install", "-qy", "--force-yes", "pkg-config" ] 
-RUN [ "apt-get", "install", "-qy", "--force-yes", "cron" ]
-RUN [ "apt-get", "clean" ]
-RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
+#RUN [ "apt-get", "install", "-qy", "vim" ]
+#RUN [ "apt-get", "install", "-qy", "pkg-config" ] 
+#RUN [ "apt-get", "install", "-qy", "cron" ]
+#RUN [ "apt-get", "clean" ]
+#RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
 
 # Uses cpanminus which makes installing CPAN modules dead simple within a Docker container to install dependencies.
 
-RUN ["cpanm", "Proc::ProcessTable", "Data::Dumper", "HTTP::Cookies","LWP::UserAgent" ,"JSON","JSON::XS","GD","LWP::Protocol::https"]
+RUN ["cpanm", "Proc::ProcessTable", "Data::Dumper", "HTTP::Cookies","LWP::UserAgent" ,"JSON","JSON::XS","GD"] #,"LWP::Protocol::https" ]
 
 
 #create zap2xml folder - This is for testing, longer term the script should live in config to not violate the authors wishes
