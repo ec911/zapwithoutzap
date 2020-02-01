@@ -1,4 +1,4 @@
-Zaplesszap is a docker container for zap2xml that includes everything required to run zap2xml exlucding the zap2xml.pl script.   To use this container visit the authors page: http://zap2xml.awardspace.info/ to download zap2xml.pl.
+Zaplesszap is a docker container for zap2xml that includes everything required to run zap2xml exlucding the zap2xml.pl script.   To use this container visit the authors page: http://zap2xml.awardspace.info/ to download zap2xml.pl....
 
 Steps to configure :
 Create the following container paths:
